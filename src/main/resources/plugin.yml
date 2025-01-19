@@ -1,0 +1,4 @@
+name: plugin-kai
+version: '1.0'
+main: de.kaigoette.pluginKai.Main
+api-version: '1.21'
