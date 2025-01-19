@@ -2,3 +2,7 @@ name: plugin-kai
 version: '1.0'
 main: de.kaigoette.pluginKai.Main
 api-version: '1.21'
+commands:
+  magic:
+    description: Gives the player a Magic Stick
+    usage: /magic
