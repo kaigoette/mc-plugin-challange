@@ -1,4 +1,4 @@
-package de.kaigoette.pluginKai.listener;
+package de.kaigoette.pluginKai.MagicStick;
 
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -13,14 +13,14 @@ import org.bukkit.util.Vector;
 
 import java.util.Random;
 
-public class PlayerInteractListener implements Listener {
+public class MagicStickListener implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             Player player = event.getPlayer();
             ItemStack item = player.getInventory().getItemInMainHand();
-            if (item != null && item.getType() == Material.BLAZE_ROD && item.getItemMeta() != null && "Magic Stick".equals(item.getItemMeta().getDisplayName())) {
+            if (new MagicStickItem().equals(item)) {
                 Block block = event.getClickedBlock();
                 if (block != null) {
                     Material[] materials = Material.values();
@@ -38,7 +38,7 @@ public class PlayerInteractListener implements Listener {
                     float blue = random.nextFloat();
 
                     // Spawn particle at block location
-                    block.getWorld().spawnParticle(Particle.BLOCK, block.getLocation().add(new Vector(0.5, 0.5, 0.5)), 10, new Particle.DustOptions(org.bukkit.Color.fromRGB((int) (red * 255), (int) (green * 255), (int) (blue * 255)), 1));
+                    block.getWorld().spawnParticle(Particle.BLOCK, block.getLocation().add(new Vector(0.5, 1, 0.5)), 10, new Particle.DustOptions(org.bukkit.Color.fromRGB((int) (red * 255), (int) (green * 255), (int) (blue * 255)), 1));
                 }
             }
         }

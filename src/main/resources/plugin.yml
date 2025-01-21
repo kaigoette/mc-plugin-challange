@@ -6,3 +6,6 @@ commands:
   magic:
     description: Gives the player a Magic Stick
     usage: /magic
+  resetscore:
+    description: Resets the score of the player
+    usage: /resetscore
