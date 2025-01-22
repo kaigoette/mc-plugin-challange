@@ -12,6 +12,6 @@ commands:
   getExplosionBall:
     description: Gives the player an Explosion Ball
     usage: /getExplosionBall
-  kill:
-    description: Kills the player
-    usage: /kill
+  chatgpt:
+    description: Chat with ChatGPT
+    usage: /chatgpt <message>

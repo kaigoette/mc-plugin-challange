@@ -2,6 +2,7 @@ package de.kaigoette.pluginKai;
 
 import de.kaigoette.pluginKai.MagicStick.MagicCommand;
 import de.kaigoette.pluginKai.MagicStick.MagicStickListener;
+import de.kaigoette.pluginKai.chatGPT.ChatGPTMain;
 import de.kaigoette.pluginKai.explodingBall.BallMain;
 import de.kaigoette.pluginKai.killFinn.KillCommand;
 import de.kaigoette.pluginKai.killFinn.KillListener;
@@ -21,6 +22,8 @@ public final class Main extends JavaPlugin {
         new BallMain(this);
         //this.getCommand("kill").setExecutor(new KillCommand(this));
         //getServer().getPluginManager().registerEvents(new KillListener(this), this);
+        
+        new ChatGPTMain(this);
     }
 
     @Override
