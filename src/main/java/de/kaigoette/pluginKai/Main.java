@@ -19,9 +19,8 @@ public final class Main extends JavaPlugin {
         new ScoreboardMain(this);
         // ExplodingBall
         new BallMain(this);
-        // OPFAAA
-        this.getCommand("kill").setExecutor(new KillCommand(this));
-        getServer().getPluginManager().registerEvents(new KillListener(this), this);
+        //this.getCommand("kill").setExecutor(new KillCommand(this));
+        //getServer().getPluginManager().registerEvents(new KillListener(this), this);
     }
 
     @Override

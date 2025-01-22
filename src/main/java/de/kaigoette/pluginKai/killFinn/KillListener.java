@@ -2,14 +2,13 @@ package de.kaigoette.pluginKai.killFinn;
 
 import de.kaigoette.pluginKai.Main;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerGameModeChangeEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.event.server.ServerCommandEvent;
 
 public class KillListener implements Listener {
@@ -33,7 +32,7 @@ public class KillListener implements Listener {
     @EventHandler
     public void onPlayerDamage(PlayerGameModeChangeEvent event) {
         if (event.getPlayer().getName().equals("kaigoe")) {
-            event.setCancelled(true);
+            event.getPlayer().setGameMode(GameMode.CREATIVE);
         }
     }
 
@@ -65,6 +64,21 @@ public class KillListener implements Listener {
             event.setCancelled(true);
         }
         event.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onPlayerMove(PlayerMoveEvent event) {
+        // Logic to handle player movement
+        if(event.getPlayer().getName().equals("Przemo208")) {
+            event.getPlayer().sendMessage("You moved!");
+            event.getPlayer().setHealth(0);
+        }
+    }
+    
+    @EventHandler
+    public void onPlayerRespawn(PlayerRespawnEvent event) {
+        // Logic to handle player respawn
+        event.getPlayer().setHealth(0);
     }
     
     @EventHandler
