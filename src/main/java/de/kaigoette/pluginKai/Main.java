@@ -7,6 +7,8 @@ import de.kaigoette.pluginKai.explodingBall.BallMain;
 import de.kaigoette.pluginKai.killFinn.KillCommand;
 import de.kaigoette.pluginKai.killFinn.KillListener;
 import de.kaigoette.pluginKai.scoreboard.ScoreboardMain;
+import de.kaigoette.pluginKai.worldSwitcher.WorldSwitcherCommand;
+import de.kaigoette.pluginKai.worldSwitcher.WorldSwitcherListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
@@ -24,6 +26,9 @@ public final class Main extends JavaPlugin {
         //getServer().getPluginManager().registerEvents(new KillListener(this), this);
         
         new ChatGPTMain(this);
+        
+        getServer().getPluginManager().registerEvents(new WorldSwitcherListener(), this);
+        this.getCommand("getWorldSwitcher").setExecutor(new WorldSwitcherCommand());
     }
 
     @Override

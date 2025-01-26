@@ -15,3 +15,6 @@ commands:
   chatgpt:
     description: Chat with ChatGPT
     usage: /chatgpt <message>
+  getWorldSwitcher:
+    description: Gives the player a World Switcher
+    usage: /getWorldSwitcher
