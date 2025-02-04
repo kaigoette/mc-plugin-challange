@@ -1,5 +1,8 @@
 package de.kaigoette.pluginKai.chatGPT;
 
+import com.plexpt.chatgpt.ChatGPT;
+import com.plexpt.chatgpt.entity.chat.ChatCompletion;
+import com.plexpt.chatgpt.entity.chat.Message;
 import de.kaigoette.pluginKai.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,13 +10,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.Map;
+import java.util.*;
 
 public class ChatGPTCommand implements CommandExecutor {
     
     private final Main plugin;
-    private Map user = Map.of("", "");
-    
+    // private Map<UUID, List<ChatModel>> user = new HashMap<>();
     
     public ChatGPTCommand(Main plugin) {
         this.plugin = plugin;
@@ -27,8 +29,11 @@ public class ChatGPTCommand implements CommandExecutor {
                 player.sendMessage("Please provide a message to send to ChatGPT.");
                 return false;
             }
-
+            
             String message = String.join(" ", args);
+
+            player.sendMessage("To ChatGPT: " + message);
+
             new BukkitRunnable() {
                 @Override
                 public void run() {
@@ -48,6 +53,14 @@ public class ChatGPTCommand implements CommandExecutor {
     }
 
     private String sendMessageToChatGPT(String message) {
-        return "LOL";
+
+        ChatGPT chatGPT = ChatGPT.builder()
+                .apiKey("API-KEY")
+                .build()
+                .init();
+        
+        String res = chatGPT.chat(message);
+
+        return res;
     }
 }
