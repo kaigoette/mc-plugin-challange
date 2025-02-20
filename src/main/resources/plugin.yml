@@ -14,7 +14,7 @@ commands:
     usage: /getExplosionBall
   chatgpt:
     description: Chat with ChatGPT
-    usage: /chatgpt <message>
+    usage: /chatgpt <message> or <api-key>
   world:
     description: menages the worlds
     usage: /world <add|join|invite|kick|list|member>
